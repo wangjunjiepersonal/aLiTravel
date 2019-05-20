@@ -9,6 +9,11 @@ import './assets/styles/reset.css'
 import './assets/styles/border.css'
 import './assets/styles/iconfont.css'
 
+//引入swiper轮播图
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
+Vue.use(VueAwesomeSwiper)
+
 //解决300毫秒延迟问题
 import fastclick from 'fastclick'
 fastclick.attach(document.body)
