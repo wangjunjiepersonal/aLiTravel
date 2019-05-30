@@ -4,17 +4,28 @@
 			<i class="iconfont">&#xe624;</i>
 		</div>
 		<div class="header_input">
+			<input type="text" placeholder="输入要查找的城市名称" />
 			<i class="iconfont">&#xe632;</i>
-			输入城市景点游玩主题
 		</div>
-		<div class="header_right">
-			城市
+		<div class="header_right" @click="skipCity">
+			{{this.city}}
 			<i class="iconfont">&#xe62d;</i>
 		</div>
 	</div>
 </template>
 
 <script>
+	import {mapState} from 'vuex'
+	export default {
+		methods:{
+			skipCity(){
+				this.$router.push('/city')
+			}
+		},
+		computed:{
+			...mapState(['city'])
+		}
+	}
 </script>
 
 <style scoped="scoped" lang="stylus">
@@ -22,14 +33,15 @@
 	.header
 		display: flex
 		background-color: $bgColor
-		height:.86rem
+		height:$headerHeight
 		color: #fff
-		line-height: .86rem
+		line-height: $headerHeight
 		.header_left
 			width: .64rem
 			float: left	
 			text-align:center
 		.header_input
+			position:relative
 			flex: 1;
 			background-color: #fff
 			border-radius: 0.1rem
@@ -38,11 +50,20 @@
 			height: 0.64rem
 			color: #ccc
 			line-height: 0.64rem
+			input{
+				width: 100%
+				height: 100%
+				padding-left: .5rem
+				box-sizing: border-box
+			}
 			i
-				margin: 0.1rem;
+				position:absolute
+				left:.06rem
+				top:.02rem
 			
 		.header_right
-			width: 1.24rem
+			min-width: 1.04rem
+			padding:0 .1rem
 			float: right
 			text-align: center
 			i

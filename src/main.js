@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 
 //引入css格式化文件 包括格式化文件 1像素边框文件 字体图标文件
 import './assets/styles/reset.css'
@@ -18,12 +19,15 @@ Vue.use(VueAwesomeSwiper)
 import fastclick from 'fastclick'
 fastclick.attach(document.body)
 
+//解决白屏问题
+import 'babel-polyfill'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
